@@ -1219,7 +1219,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ productId,
                             {/* CERTIFICATE BLOCK - Always visible for Flowers */}
                             {(product.labCertificate || isFlower) && (
                                 <div className="mt-4" ref={certificateRef}>
-                                    <CertificateBlock url={product.labCertificate || "/medias/certificate-default.pdf"} isDark={isExtreme} />
+                                    <CertificateBlock url={getAssetUrl(product.labCertificate || "/medias/certificate-default.pdf")} isDark={isExtreme} />
                                 </div>
                             )}
                         </div>

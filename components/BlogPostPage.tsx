@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { BLOG_POSTS, ALL_PRODUCTS } from '../constants';
 import { ArrowLeft, Clock, Calendar, User, Share2, Facebook, Twitter, Link as LinkIcon, ArrowRight, CheckCircle, ArrowUp } from 'lucide-react';
 import { ProductCard } from './ProductCard';
+import { getAssetUrl } from '../utils/assets';
 import { Link, useParams } from 'react-router-dom';
 
 interface BlogPostPageProps { }
@@ -89,7 +90,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = () => {
 
                 {/* Hero Image */}
                 <div className="rounded-[2rem] overflow-hidden shadow-2xl mb-16 aspect-video">
-                    <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
+                    <img src={getAssetUrl(post.image)} alt={post.title} className="w-full h-full object-cover" />
                 </div>
 
                 <div className="flex flex-col lg:flex-row gap-12">
@@ -239,7 +240,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = () => {
                                     {relatedProducts.map(product => (
                                         <Link key={product.id} to={`/produit/${product.id}`} className="group cursor-pointer block">
                                             <div className="aspect-square rounded-xl overflow-hidden mb-3 border border-gray-100">
-                                                <img src={product.image} alt={product.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform" />
+                                                <img src={getAssetUrl(product.image)} alt={product.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform" />
                                             </div>
                                             <h4 className="font-bold text-sm text-gardenz-dark group-hover:text-gardenz-green transition-colors line-clamp-1">{product.name}</h4>
                                             <span className="text-sm font-medium text-gray-500">{product.price.toFixed(2)}€</span>
@@ -268,7 +269,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = () => {
                                 className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all cursor-pointer group block"
                             >
                                 <div className="aspect-video overflow-hidden">
-                                    <img src={p.image} alt={p.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                                    <img src={getAssetUrl(p.image)} alt={p.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                                 </div>
                                 <div className="p-6">
                                     <span className="text-xs font-bold text-gardenz-green uppercase tracking-widest mb-2 block">{p.category}</span>

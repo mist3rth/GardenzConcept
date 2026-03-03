@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { X, Search, Leaf, Zap, Sparkles, ArrowUpRight, Loader2, AlertCircle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { WELLNESS_PRODUCTS, EXTREME_PRODUCTS, LIFESTYLE_PRODUCTS } from '../constants';
+import { getAssetUrl } from '../utils/assets';
 import { CONFIG } from '../config';
 import { Product } from '../types';
 
@@ -280,7 +281,7 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose, o
                                     >
                                         {/* Image */}
                                         <div className="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 bg-gray-800">
-                                            <img src={product.image} alt={product.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                                            <img src={getAssetUrl(product.image)} alt={product.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                                         </div>
 
                                         {/* Info */}

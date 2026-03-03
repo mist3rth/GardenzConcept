@@ -6,6 +6,7 @@ import { SearchOverlay } from './SearchOverlay';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
 import { ALL_PRODUCTS } from '../constants';
+import { getAssetUrl } from '../utils/assets';
 
 interface NavbarProps {
     currentPage: string;
@@ -417,7 +418,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onProductClick }) =
                                                 return prod ? (
                                                     <>
                                                         <img
-                                                            src={prod.image}
+                                                            src={getAssetUrl(prod.image)}
                                                             className="w-full h-full object-cover group-hover/img:scale-110 transition-transform duration-1000 brightness-90"
                                                             alt={prod.name}
                                                         />
