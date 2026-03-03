@@ -222,7 +222,7 @@ const ProductDetailPageWrapper: React.FC<any> = ({ onProductClick, onQuickView }
 
 function App() {
     return (
-        <Router>
+        <Router basename={import.meta.env.BASE_URL}>
             <CookieProvider>
                 <CartProvider>
                     <AudioProvider>

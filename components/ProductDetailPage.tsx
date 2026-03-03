@@ -627,7 +627,9 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ productId,
 
     // MEDIA GALLERY STATE
     const [selectedMediaIndex, setSelectedMediaIndex] = useState(0);
-    const images = product?.images && product.images.length > 0 ? product.images : [product?.image];
+    const images = product?.images && product.images.length > 0 
+        ? product.images.map(img => getAssetUrl(img)) 
+        : [getAssetUrl(product?.image || '')];
     const isVideoSelected = selectedMediaIndex === images.length;
     const productVideo = getAssetUrl(product?.video || '/medias/video.mp4');
     const currentMedia = !isVideoSelected ? images[selectedMediaIndex] : null;

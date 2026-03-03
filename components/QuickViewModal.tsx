@@ -210,13 +210,13 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({ isOpen, onClose,
                                 const defaultSecondary = isWellness 
                                     ? getAssetUrl('/images/products/bien_etre/serum-cbd-visage.webp')
                                     : getAssetUrl('/images/products/extreme_lab/resine-thch-dark.webp');
-                                const secondImage = otherImages.length > 0 ? otherImages[0] : defaultSecondary;
+                                const secondImage = otherImages.length > 0 ? getAssetUrl(otherImages[0]) : defaultSecondary;
                                 setActiveImage(secondImage);
                             }}
                             className={`relative group overflow-hidden rounded-lg aspect-square border ${borderClass} ${isDarkTheme ? 'bg-zinc-900/50' : 'bg-white'} ${activeMedia === 'image' && activeImage !== product.image ? 'ring-2 ring-gardenz-green' : ''}`}
                         >
                             <img 
-                                src={(product.images?.filter(img => img !== product.image) || [])[0] || (isWellness ? getAssetUrl('/images/products/bien_etre/serum-cbd-visage.webp') : getAssetUrl('/images/products/extreme_lab/resine-thch-dark.webp'))} 
+                                src={(product.images?.filter(img => img !== product.image).map(img => getAssetUrl(img)) || [])[0] || (isWellness ? getAssetUrl('/images/products/bien_etre/serum-cbd-visage.webp') : getAssetUrl('/images/products/extreme_lab/resine-thch-dark.webp'))} 
                                 className={`w-full h-full object-cover transition-opacity ${(!product.images || product.images.length <= 1) ? 'opacity-40 grayscale' : 'opacity-70 group-hover:opacity-100'}`} 
                                 alt="Secondary view" 
                             />
