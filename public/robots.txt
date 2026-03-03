@@ -1,0 +1,29 @@
+# robots.txt — Gardenz Platform
+# ⚠️  PROJET EN COURS DE DÉVELOPPEMENT — INDEXATION SUSPENDUE
+# À mettre à jour au moment du lancement en production.
+
+# Tous les robots de recherche
+User-agent: *
+Disallow: /
+
+# LLM Crawlers — accès interdit pendant la phase secrète
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Gemini
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /

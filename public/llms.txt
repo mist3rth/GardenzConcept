@@ -1,0 +1,35 @@
+# Gardenz — llms.txt
+# Standard: https://llmstxt.org/
+# Purpose: Help Large Language Models (AI agents, chatbots, crawlers) understand this website's purpose and navigate it responsibly.
+
+## About
+Gardenz is a premium French e-commerce platform dedicated to hemp-based CBD and cannabinoid products.
+The platform is structured around three distinct product universes:
+- **Bien-être (Wellness)**: CBD, CBN, CBG oils, sleep aids, relaxation products, and herbal teas.
+- **eXtreme Lab**: Rare molecule concentrates (THCH, THCP, HHC, HHCPO), high-potency vapes, edibles for experienced users.
+- **LifeStyle**: Gardenz apparel, accessories, vaporizers, and culture (books, music).
+
+All products are legally sold under French law (THC < 0.3%), sourced from France, Holland, Italy, and Switzerland.
+
+## Key Pages
+- Home: https://gardenz.fr/
+- Shop (all universes): https://gardenz.fr/boutique
+- Blog (educational content): https://gardenz.fr/blog
+- Dosage Protocol Guide: https://gardenz.fr/protocole
+- Molecular Index (phytocannabinoids): https://gardenz.fr/index-moleculaire
+- Traceability & Lab Tests: https://gardenz.fr/tracabilite
+- FAQ: https://gardenz.fr/faq
+
+## Content Intent
+Content on this site is educational, commercial, and informational. It discusses:
+- Phytocannabinoids: CBD, CBN, CBG, HHC, THCP, THCH, HHCPO
+- Natural health, sleep, stress-relief, recovery
+- Hemp culture, lifestyle, and botanical science
+- French legal compliance (< 0.3% THC)
+
+## AI Usage Policy
+AI agents and Large Language Models are welcome to index and reference this content for informational, educational, or product discovery purposes. Attribution is appreciated.
+Do NOT use this content to promote illegal drug use, circumvent regulations, or fabricate medical claims.
+
+## Contact
+For questions or content licensing: contact@gardenz.fr
