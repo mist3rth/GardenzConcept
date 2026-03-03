@@ -4,6 +4,7 @@ import { Product } from '../types';
 import { useCart } from '../context/CartContext';
 import { StockNotification } from './StockNotification';
 import { useNavigate, Link } from 'react-router-dom';
+import { getAssetUrl } from '../utils/assets';
 
 interface QuickViewModalProps {
     isOpen: boolean;
@@ -145,10 +146,10 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({ isOpen, onClose,
                 <div className={`md:w-[42%] flex flex-col md:h-full md:overflow-y-auto order-2 md:order-1 ${sideBg} ${isWellness ? 'border-t md:border-t-0 md:border-r border-gray-200/50' : 'border-t md:border-t-0 md:border-r border-white/5'}`}>
                     <div className="relative aspect-video overflow-hidden">
                         {activeMedia === 'image' ? (
-                            <img src={activeImage || product.image} alt={product.name} className={`w-full h-full object-cover ${isOutOfStock ? 'grayscale opacity-70' : ''}`} />
+                            <img src={getAssetUrl(activeImage || product.image)} alt={product.name} className={`w-full h-full object-cover ${isOutOfStock ? 'grayscale opacity-70' : ''}`} />
                         ) : (
                             <video
-                                src={product.video || "/medias/video.mp4"}
+                                src={getAssetUrl(product.video || '/medias/video.mp4')}
                                 className="w-full h-full object-cover"
                                 autoPlay
                                 muted={isMuted}
@@ -197,7 +198,7 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({ isOpen, onClose,
                             }}
                             className={`relative group overflow-hidden rounded-lg aspect-square border ${borderClass} ${isDarkTheme ? 'bg-zinc-900/50' : 'bg-white'} ${activeMedia === 'image' && activeImage === product.image ? 'ring-2 ring-gardenz-green' : ''}`}
                         >
-                            <img src={product.image} className="w-full h-full object-cover transition-opacity" alt="Main" />
+                                <img src={getAssetUrl(product.image)} className="w-full h-full object-cover transition-opacity" alt="Main" />
                         </button>
 
                         {/* Thumbnail 2: Other Product Image */}
@@ -207,15 +208,15 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({ isOpen, onClose,
                                 const otherImages = product.images?.filter(img => img !== product.image) || [];
                                 // Fallback images if the product doesn't have multiple images
                                 const defaultSecondary = isWellness 
-                                    ? "/images/products/bien_etre/serum-cbd-visage.webp" 
-                                    : "/images/products/extreme_lab/resine-thch-dark.webp";
+                                    ? getAssetUrl('/images/products/bien_etre/serum-cbd-visage.webp')
+                                    : getAssetUrl('/images/products/extreme_lab/resine-thch-dark.webp');
                                 const secondImage = otherImages.length > 0 ? otherImages[0] : defaultSecondary;
                                 setActiveImage(secondImage);
                             }}
                             className={`relative group overflow-hidden rounded-lg aspect-square border ${borderClass} ${isDarkTheme ? 'bg-zinc-900/50' : 'bg-white'} ${activeMedia === 'image' && activeImage !== product.image ? 'ring-2 ring-gardenz-green' : ''}`}
                         >
                             <img 
-                                src={(product.images?.filter(img => img !== product.image) || [])[0] || (isWellness ? "/images/products/bien_etre/serum-cbd-visage.webp" : "/images/products/extreme_lab/resine-thch-dark.webp")} 
+                                src={(product.images?.filter(img => img !== product.image) || [])[0] || (isWellness ? getAssetUrl('/images/products/bien_etre/serum-cbd-visage.webp') : getAssetUrl('/images/products/extreme_lab/resine-thch-dark.webp'))} 
                                 className={`w-full h-full object-cover transition-opacity ${(!product.images || product.images.length <= 1) ? 'opacity-40 grayscale' : 'opacity-70 group-hover:opacity-100'}`} 
                                 alt="Secondary view" 
                             />
@@ -227,7 +228,7 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({ isOpen, onClose,
                             className={`relative group overflow-hidden rounded-lg aspect-square border ${borderClass} ${isDarkTheme ? 'bg-zinc-900/50' : 'bg-white'} ${activeMedia === 'video' ? 'ring-2 ring-gardenz-green' : ''}`}
                         >
                             <video 
-                                src={product.video || "/medias/video.mp4"} 
+                                src={getAssetUrl(product.video || '/medias/video.mp4')} 
                                 className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity" 
                                 muted
                                 playsInline
@@ -296,12 +297,12 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({ isOpen, onClose,
                     <h2 id="modal-title" className={`font-display text-xl font-bold mb-1 leading-tight flex items-start gap-3 ${textMain}`}>
                         {product.origin && (() => {
                             const flagMap: Record<string, string> = {
-                                france: '/images/flags/hl-flag.webp',
-                                usa: '/images/flags/usa-flag.webp',
-                                italy: '/images/flags/it-flag.webp',
-                                spain: '/images/flags/es-flag.webp',
-                                switzerland: '/images/flags/ch-flag.webp',
-                                holland: '/images/flags/hl-flag.webp',
+                                france: getAssetUrl('/images/flags/hl-flag.webp'),
+                                usa: getAssetUrl('/images/flags/usa-flag.webp'),
+                                italy: getAssetUrl('/images/flags/it-flag.webp'),
+                                spain: getAssetUrl('/images/flags/es-flag.webp'),
+                                switzerland: getAssetUrl('/images/flags/ch-flag.webp'),
+                                holland: getAssetUrl('/images/flags/hl-flag.webp'),
                             };
                             const flagSrc = flagMap[product.origin] || null;
                             return flagSrc ? (

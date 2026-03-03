@@ -4,6 +4,7 @@ import { ShoppingBag, ShoppingCart, Check, Star, Flame, Zap, Droplet, FlaskConic
 import { Product } from '../types';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
+import { getAssetUrl } from '../utils/assets';
 
 interface ProductCardProps {
     product: Product;
@@ -239,7 +240,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onProductClic
             className={`group relative ${borderRadius} overflow-hidden shadow-sm transition-all duration-300 ease-out flex flex-col ${cardBg} ${cardBorder} ${shadow} cursor-pointer h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gardenz-green focus-visible:ring-offset-2`}
         >
             <div className={`relative aspect-square overflow-hidden flex-shrink-0 ${isExtreme ? 'bg-black/50' : 'bg-gray-50'}`}>
-                <img src={product.image} alt={product.name} className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out ${isOutOfStock ? 'grayscale opacity-60' : ''}`} loading="lazy" />
+                <img src={getAssetUrl(product.image)} alt={product.name} className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out ${isOutOfStock ? 'grayscale opacity-60' : ''}`} loading="lazy" />
                 
                 {isOutOfStock && !showEmailOverlay && (
                     <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/10 z-20 transition-all group-hover:bg-black/20">

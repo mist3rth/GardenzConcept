@@ -10,6 +10,7 @@ import { Breadcrumbs } from './Breadcrumbs';
 import { StockNotification } from './StockNotification';
 import { Product } from '../types';
 import { SEOHead } from './SEOHead';
+import { getAssetUrl } from '../utils/assets';
 
 // --- NEW SUB-COMPONENTS FOR CRO ---
 
@@ -82,7 +83,7 @@ const StickyAddToCart: React.FC<{ product: Product; price: number; onAdd: () => 
             <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
                 {/* Product Info (Hidden on mobile to save space) */}
                 <div className="hidden sm:flex items-center gap-4 flex-1">
-                    <img src={product.image} alt={product.name} className="w-12 h-12 rounded bg-gray-100 object-cover border border-gray-200" />
+                    <img src={getAssetUrl(product.image)} alt={product.name} className="w-12 h-12 rounded bg-gray-100 object-cover border border-gray-200" />
                     <div className="flex flex-col">
                         <span className={`font-bold text-sm line-clamp-1 ${isExtreme ? 'text-white' : 'text-gardenz-dark'}`}>{product.name}</span>
                         <div className="flex gap-2 text-xs">
@@ -628,7 +629,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ productId,
     const [selectedMediaIndex, setSelectedMediaIndex] = useState(0);
     const images = product?.images && product.images.length > 0 ? product.images : [product?.image];
     const isVideoSelected = selectedMediaIndex === images.length;
-    const productVideo = product?.video || "/medias/video.mp4";
+    const productVideo = getAssetUrl(product?.video || '/medias/video.mp4');
     const currentMedia = !isVideoSelected ? images[selectedMediaIndex] : null;
 
     // TAB STATES
@@ -1323,12 +1324,12 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ productId,
                                 >
                                     {product.origin && (() => {
                                         const flagMap: Record<string, string> = {
-                                            france: '/images/flags/hl-flag.webp',
-                                            usa: '/images/flags/usa-flag.webp',
-                                            italy: '/images/flags/it-flag.webp',
-                                            spain: '/images/flags/es-flag.webp',
-                                            switzerland: '/images/flags/ch-flag.webp',
-                                            holland: '/images/flags/hl-flag.webp',
+                                            france: getAssetUrl('/images/flags/hl-flag.webp'),
+                                            usa: getAssetUrl('/images/flags/usa-flag.webp'),
+                                            italy: getAssetUrl('/images/flags/it-flag.webp'),
+                                            spain: getAssetUrl('/images/flags/es-flag.webp'),
+                                            switzerland: getAssetUrl('/images/flags/ch-flag.webp'),
+                                            holland: getAssetUrl('/images/flags/hl-flag.webp'),
                                         };
                                         const flagSrc = flagMap[product.origin] || null;
                                         return flagSrc ? (

@@ -2,6 +2,7 @@
 import React from 'react';
 import { ArrowRight, TrendingUp, MapPin, ShieldCheck } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { getAssetUrl } from '../utils/assets';
 
 interface PartnershipPushSectionProps { }
 
@@ -11,7 +12,7 @@ export const PartnershipPushSection: React.FC<PartnershipPushSectionProps> = () 
             {/* Immersive Background */}
             <div className="absolute inset-0">
                 <img
-                    src="/images/nos-boutiques/franchise-gardenz.webp?v=1"
+                    src={getAssetUrl('/images/nos-boutiques/franchise-gardenz.webp')}
                     alt="Franchisé Gardenz"
                     className="w-full h-full object-cover filter brightness-[0.4]"
                 />

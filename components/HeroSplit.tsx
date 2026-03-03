@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { getAssetUrl } from '../utils/assets';
 
 interface HeroSplitProps {
   // onNavigate removed
@@ -22,7 +23,7 @@ export const HeroSplit: React.FC<HeroSplitProps> = () => {
       >
         <div className="absolute inset-0 bg-black/10 z-10 group-hover:bg-transparent transition-colors"></div>
         <img
-          src="/images/home-page/hero-wellness.webp"
+          src={getAssetUrl('/images/home-page/hero-wellness.webp')}
           alt="Univers Bien-être Gardenz"
           className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-105"
           loading="eager"
@@ -55,7 +56,7 @@ export const HeroSplit: React.FC<HeroSplitProps> = () => {
         onMouseLeave={() => setHoveredSide(null)}
       >
         <img
-          src="/images/home-page/hero-extreme.webp"
+          src={getAssetUrl('/images/home-page/hero-extreme.webp')}
           alt="Univers eXtreme Lab"
           className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-105"
           loading="eager"

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { MapPin, Clock, ShoppingCart, Music, FlaskConical, Sparkles, Navigation, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { getAssetUrl } from '../utils/assets';
 
 interface ShopsHighlightSectionProps { }
 
@@ -39,7 +40,7 @@ export const ShopsHighlightSection: React.FC<ShopsHighlightSectionProps> = () =>
                     <div className="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500 border border-gray-100 flex flex-col">
                         <div className="h-72 overflow-hidden relative">
                             <img
-                                src="/images/nos-boutiques/alexandrie-gardenz.webp"
+                                src={getAssetUrl('/images/nos-boutiques/alexandrie-gardenz.webp')}
                                 alt="Alexandrie Gardenz - Paris 2"
                                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                             />
@@ -93,7 +94,7 @@ export const ShopsHighlightSection: React.FC<ShopsHighlightSectionProps> = () =>
                     <div className="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500 border border-gray-100 flex flex-col">
                         <div className="h-72 overflow-hidden relative">
                             <img
-                                src="/images/nos-boutiques/republique-gardenz.webp"
+                                src={getAssetUrl('/images/nos-boutiques/republique-gardenz.webp')}
                                 alt="Republik Gardenz - Paris 3"
                                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                             />

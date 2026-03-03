@@ -1,5 +1,6 @@
 
 import React, { createContext, useContext, useState, useRef, ReactNode, useEffect } from 'react';
+import { getAssetUrl } from '../utils/assets';
 
 interface AudioContextType {
     isPlaying: boolean;
@@ -14,7 +15,7 @@ export const AudioProvider: React.FC<{ children: ReactNode }> = ({ children }) =
     const [isPlaying, setIsPlaying] = useState(false);
     const [isPlayerVisible, setIsPlayerVisible] = useState(false);
     const audioRef = useRef<HTMLAudioElement | null>(null);
-    const tracks = ['/medias/son.mp3', '/medias/son2.mp3'];
+    const tracks = [getAssetUrl('/medias/son.mp3'), getAssetUrl('/medias/son2.mp3')];
 
     // Ensure audio element is created once
     useEffect(() => {

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Play, Music, Video, Wrench, Shirt, Pause, Square, X, Volume2, VolumeX } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useAudio } from '../context/AudioContext';
+import { getAssetUrl } from '../utils/assets';
 
 interface LifestyleSectionProps {
     // onNavigate removed
@@ -19,7 +20,7 @@ export const LifestyleSection: React.FC<LifestyleSectionProps> = () => {
             desc: "Vaporisateurs dernière génération, grinders céramique. La précision technique.",
             icon: <Wrench size={16} />,
             link: "/boutique?filter=lifestyle&category=Accessoires",
-            img: "/images/home-page/lifestyle-accessoires.webp",
+            img: getAssetUrl('/images/home-page/lifestyle-accessoires.webp'),
             label: "Voir les accessoires",
             textColor: 'text-white'
         },
@@ -29,7 +30,7 @@ export const LifestyleSection: React.FC<LifestyleSectionProps> = () => {
             desc: "Retrouvez notre sélection musicale exclusive mixée en direct.",
             icon: <Music size={16} />,
             link: "#",
-            img: "/images/home-page/lifestyle-musique.webp",
+            img: getAssetUrl('/images/home-page/lifestyle-musique.webp'),
             label: isPlaying ? "En cours..." : "Écouter le set",
             isExternal: false,
             onClick: (e: React.MouseEvent) => {
@@ -45,7 +46,7 @@ export const LifestyleSection: React.FC<LifestyleSectionProps> = () => {
             desc: "Hoodies oversize, T-shirts graphiques. Designé à Paris.",
             icon: <Shirt size={16} />,
             link: "/boutique?filter=lifestyle&category=Vêtements",
-            img: "/images/home-page/lifestyle-vetements.webp",
+            img: getAssetUrl('/images/home-page/lifestyle-vetements.webp'),
             label: "Accéder au shop",
             textColor: 'text-white'
         },
@@ -62,7 +63,7 @@ export const LifestyleSection: React.FC<LifestyleSectionProps> = () => {
                 e.stopPropagation();
                 setActiveVideoIdx(activeVideoIdx === 3 ? null : 3); // 3 is the index of the CBN card
             },
-            img: "/images/home-page/lifestyle-education.webp",
+            img: getAssetUrl('/images/home-page/lifestyle-education.webp'),
             textColor: 'text-white'
         }
     ];
@@ -100,7 +101,7 @@ export const LifestyleSection: React.FC<LifestyleSectionProps> = () => {
                                 {isVideoActive ? (
                                     <div className="absolute inset-0 bg-black z-0">
                                         <video 
-                                            src="/medias/videoCbd.mp4" 
+                                            src={getAssetUrl('/medias/videoCbd.mp4')} 
                                             className="w-full h-full object-cover"
                                             autoPlay 
                                             playsInline
@@ -137,7 +138,7 @@ export const LifestyleSection: React.FC<LifestyleSectionProps> = () => {
                                 ) : (
                                     <>
                                         <img
-                                            src={card.img}
+                                            src={getAssetUrl(card.img)}
                                             alt={card.title}
                                             className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                         />
