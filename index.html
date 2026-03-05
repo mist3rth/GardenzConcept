@@ -28,30 +28,19 @@
       content="Découvrez Gardenz, l'expert du CBD en France. Huiles, Fleurs, Vapes et Lifestyle. Livraison Express 24h/48h. Produits testés en laboratoire et 100% légaux."
     />
     <link rel="canonical" href="https://gardenz.fr/" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
     <meta name="robots" content="index, follow" />
 
-    <!-- Google Fonts: Inter, Syne and JetBrains Mono (Lab Look) -->
+    <!-- Google Fonts : non-bloquant (évite le render-blocking) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap"
-      rel="stylesheet"
+      rel="stylesheet" media="print" onload="this.media='all'"
     />
-
-    <script type="importmap">
-      {
-        "imports": {
-          "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
-          "react/": "https://aistudiocdn.com/react@^19.2.0/",
-          "react": "https://aistudiocdn.com/react@^19.2.0",
-          "react-dom": "https://aistudiocdn.com/react-dom@^19.2.0",
-          "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-          "canvas-confetti": "https://esm.sh/canvas-confetti@^1.9.4",
-          "@google/genai": "https://esm.sh/@google/genai@^1.39.0"
-        }
-      }
-    </script>
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+    </noscript>
     <link rel="stylesheet" href="/index.css" />
   </head>
   <body>
