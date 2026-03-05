@@ -27,10 +27,18 @@ interface ShopPageProps {
     initialCategory?: string;
 }
 
+const getMoleculesForIntensity = (intensity: string): string[] => {
+    return Array.from(new Set(
+        ALL_PRODUCTS
+            .filter(p => p.intensity === intensity && p.molecule)
+            .map(p => p.molecule as string)
+    )).sort();
+};
+
 const MOLECULES_BY_INTENSITY: Record<string, string[]> = {
-    'Soft': ['CBD', 'CBG', 'CBC', 'CBN', 'H4-CBD'],
-    'Medium': ['THCV', 'HHC', 'Delta-9-THC', 'HHCA'],
-    'Hardcore': ['HHCP-O', 'THC-O', 'HHC-P', 'THCP', 'THCH', 'THCB']
+    'Soft': getMoleculesForIntensity('Soft'),
+    'Medium': getMoleculesForIntensity('Medium'),
+    'Hardcore': getMoleculesForIntensity('Hardcore')
 };
 
 export const ShopPage: React.FC<ShopPageProps> = ({
