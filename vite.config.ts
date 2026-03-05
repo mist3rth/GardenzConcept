@@ -25,10 +25,12 @@ export default defineConfig(({ mode }) => {
         rollupOptions: {
           output: {
             manualChunks: {
-              // Core React runtime — loaded first, cached aggressively
+              // Core React runtime — chargé en premier, mis en cache agressivement
               'vendor-react': ['react', 'react-dom', 'react-router-dom'],
-              // Icons (lucide) — large, rarely changes
+              // Icônes — bundle séparé car volumineux
               'vendor-icons': ['lucide-react'],
+              // Data statique — séparé car très gros (toutes les descriptions etc.)
+              'vendor-data': ['./constants.ts'],
             }
           }
         }

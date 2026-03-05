@@ -6,9 +6,12 @@ import { HomepageSEOBlock } from './HomepageSEOBlock';
 import { LifestyleSection } from './LifestyleSection';
 import { WellnessSection } from './WellnessSection';
 import { ExtremeSection } from './ExtremeSection';
-import { ReviewsSection } from './ReviewsSection';
 import { CommunitySelection } from './CommunitySelection';
 import { NewsletterSection } from './NewsletterSection';
+
+// Lazy load below-the-fold non-critical sections
+const ReviewsSection = React.lazy(() => import('./ReviewsSection').then(m => ({ default: m.ReviewsSection })));
+
 import { Truck, ShieldCheck, FlaskConical, Headphones } from 'lucide-react';
 import { Product } from '../types';
 
@@ -77,8 +80,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onProductClick, onQuickView 
         <LifestyleSection />
       </div>
 
-      {/* 7. Avis Clients : Preuve de satisfaction finale */}
-      <ReviewsSection />
+      {/* 7. Avis Clients : Preuve de satisfaction finale (Lazy loaded) */}
+      <React.Suspense fallback={<div className="h-64 flex items-center justify-center">Chargement des avis...</div>}>
+         <ReviewsSection />
+      </React.Suspense>
 
       {/* 8. Lead Magnet : Capture d'audience */}
       <NewsletterSection />
