@@ -4,6 +4,7 @@ import { X, Trash2, Plus, Minus, ShoppingBag, ArrowRight, Truck, CheckCircle, Sp
 import { useCart, CartItem } from '../context/CartContext';
 import { ALL_PRODUCTS } from '../constants';
 import { useNavigate } from 'react-router-dom';
+import { getAssetUrl } from '../utils/assets';
 
 export const CartDrawer: React.FC = () => {
   const { items, isOpen, setIsOpen, removeFromCart, updateQuantity, addToCart, cartTotal, clearCart } = useCart();
@@ -133,7 +134,7 @@ export const CartDrawer: React.FC = () => {
               <div className="px-6 pb-4 animate-fade-in">
                 <div className="bg-white rounded-xl p-3 border border-gardenz-green/20 flex items-center gap-3 shadow-sm hover:shadow-md transition-shadow group/filler">
                   <div className="w-10 h-10 rounded-lg overflow-hidden flex-shrink-0 bg-gray-100 border border-gray-50">
-                    <img src={suggestedFiller.image} alt={suggestedFiller.name} className="w-full h-full object-cover" />
+                    <img src={getAssetUrl(suggestedFiller.image)} alt={suggestedFiller.name} className="w-full h-full object-cover" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="text-[10px] text-gardenz-green font-bold uppercase tracking-wider flex items-center gap-1">
@@ -179,7 +180,7 @@ export const CartDrawer: React.FC = () => {
                 <div key={item.cartId} className="flex gap-4 group">
                   {/* Image */}
                   <div className={`w-24 h-24 rounded-xl overflow-hidden flex-shrink-0 border ${item.universe === 'extreme' ? 'border-gray-800 bg-black' : 'border-gray-100 bg-gray-50'}`}>
-                    <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
+                    <img src={getAssetUrl(item.image)} alt={item.name} className="w-full h-full object-cover" />
                   </div>
 
                   {/* Info */}

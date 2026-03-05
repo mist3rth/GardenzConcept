@@ -4,6 +4,7 @@ import { Star, Quote, Loader2, AlertCircle } from 'lucide-react';
 import { REVIEWS as MOCK_REVIEWS } from '../constants';
 import { CONFIG } from '../config';
 import { Review } from '../types';
+import { getAssetUrl } from '../utils/assets';
 
 export const ReviewsSection: React.FC = () => {
     const [reviews, setReviews] = useState<Review[]>(MOCK_REVIEWS);
@@ -93,7 +94,7 @@ export const ReviewsSection: React.FC = () => {
                                 {/* Header: User Info */}
                                 <div className="flex items-center gap-4 mb-4 relative z-10">
                                     <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-sm bg-gray-100">
-                                        <img src={review.image} alt={review.author} className="w-full h-full object-cover" />
+                                        <img src={getAssetUrl(review.image)} alt={review.author} className="w-full h-full object-cover" />
                                     </div>
                                     <div>
                                         <h3 className="font-bold text-gardenz-dark text-sm">{review.author}</h3>

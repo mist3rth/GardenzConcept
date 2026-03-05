@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { useCart } from '../../context/CartContext';
 import { ShoppingBag, ChevronDown, Tag, Gift } from 'lucide-react';
+import { getAssetUrl } from '../../utils/assets';
 
 export const OrderSummary: React.FC = () => {
     const { items, cartTotal } = useCart();
@@ -26,7 +27,7 @@ export const OrderSummary: React.FC = () => {
                 {items.map((item) => (
                     <div key={item.cartId} className="flex gap-4">
                         <div className="relative w-16 h-16 rounded-lg overflow-hidden border border-gray-200 flex-shrink-0">
-                            <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
+                            <img src={getAssetUrl(item.image)} alt={item.name} className="w-full h-full object-cover" />
                             <span className="absolute top-0 right-0 bg-gray-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-bl-lg">x{item.quantity}</span>
                         </div>
                         <div className="flex-1">
