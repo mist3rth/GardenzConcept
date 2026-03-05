@@ -159,7 +159,12 @@ export const ShopPage: React.FC<ShopPageProps> = ({
             if (i < extreme.length) mixed.push(extreme[i]);
             if (i < lifestyle.length) mixed.push(lifestyle[i]);
         }
-
+        
+        // S'assurer qu'absolument aucun produit n'est perdu (bien que `maxLength` devrait suffire, 
+        // une erreur de logique de maxLength n'est pas exclue s'il y a des doublons ou autres.
+        // En réalité ce code avec maxLength est safe s'il va jusqu'au max, MAIS les index 
+        // i < wellness.length garantissent déjà qu'on prend tout.
+        
         return mixed;
     };
 
@@ -225,7 +230,18 @@ export const ShopPage: React.FC<ShopPageProps> = ({
     };
 
     const getFilterCount = (type: 'category' | 'usage' | 'intensity', value: string) => {
-        return ALL_PRODUCTS.filter(p => filterProduct(p, { [type]: value })).length;
+        const overrides: any = { [type]: value };
+        // Reset cross-universe filters based on what is clicked, mimicking the onClick handlers
+        if (type === 'intensity') {
+            overrides.molecule = 'All';
+            if (currentUniverse === 'All') overrides.usage = 'All';
+        } else if (type === 'usage') {
+            if (currentUniverse === 'All') {
+                overrides.intensity = 'All';
+                overrides.molecule = 'All';
+            }
+        }
+        return ALL_PRODUCTS.filter(p => filterProduct(p, overrides)).length;
     };
 
     const getMoleculeCount = (mol: string) => {
